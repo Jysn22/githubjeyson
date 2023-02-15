@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script>
+
+    function sololetras(e){
+
+    key=e.keyCode || e.which;
+    
+    teclado=String.fromCharCode(key).toLowerCase();
+    
+    letras=" abcdefghijklmnñopqrstuvwxyz";
+    
+    especiales="8-37-38-46-164";
+        
+    teclado_especial=false;
+    
+    for(var i in especiales){
+    
+        if(key==especiales[i]){
+            teclado_especial=true;break;
+        }
+    }
+    
+    if(letras.indexOf(teclado)==-1 && !teclado_especial){
+    
+        return false;
+    
+    }
+    }
+    </script>
+</head>
+<body>
+    <form class="form" method="get">
+        <label for="nombre" class="form_label label">
+
+            <span class="tipoTexto">Nombre</span>
+
+           
+            <input class="tipoCuadro" type="text" id="nombre" onkeypress="return sololetras(event)"placeholder="Ingrese Nombre" required>
+        </label>  
+
+        <label for="email" class="form_label">
+            
+            <span class="tipoTexto">Correo Electronico</span>
+            
+            <input class="tipoCuadro" type="email" id="email"  placeholder="E-mail" required>
+        
+        </label>
+        
+        <label for="numeroRandom" class="form_label label">
+            
+            <span class="tipoTexto">Numero Random</span>
+            
+            <input class="tipoCuadro" type="text" id="numeroRandom" value="Cargando...." readonly>
+        
+        </label>
+        
+        <button class="boton" id="boton">SEND FEEDBACK</button>
+   
+    </form>
+    <script src="validacion.js"></script>
+</body>
+</html>
